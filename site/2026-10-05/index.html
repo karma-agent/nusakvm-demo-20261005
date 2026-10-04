@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>NusaKVM · 手機上的遠端主機</title>
+<style>
+:root{color-scheme:dark;--bg:#10131a;--panel:#181d26;--text:#f1f5f4;--muted:#a9b4b9;--mint:#a2edcc;--rule:#303844;--soft:#222b35}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.6 -apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC",sans-serif}button,a{touch-action:manipulation}button{font:inherit;cursor:pointer}button:disabled{cursor:default}button:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid var(--mint);outline-offset:4px}a{color:var(--mint);text-underline-offset:4px}main{max-width:1240px;margin:auto;padding:18px 24px 44px}.masthead{display:flex;align-items:center;gap:14px;min-height:40px;margin-bottom:12px}.brand{color:var(--mint);font-size:21px;font-weight:600;letter-spacing:-.03em;text-decoration:none}.masthead h1{font-size:17px;font-weight:500;letter-spacing:.01em;line-height:1.35;margin:0}.edition{margin-left:auto;color:var(--muted);font-size:12px;white-space:nowrap}.topic-nav{position:sticky;top:0;z-index:2;background:rgba(16,19,26,.97);padding:8px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-bottom:10px}.topics{display:flex;gap:6px;overflow:auto;scrollbar-width:thin;scrollbar-color:var(--rule) transparent}.topic{flex:1 0 auto;min-height:44px;padding:8px 12px;color:var(--muted);background:transparent;border:1px solid transparent;border-radius:8px;white-space:nowrap;font-size:13px;text-align:left}.topic span{color:var(--mint);font:11px/1.2 ui-monospace,SFMono-Regular,monospace;margin-right:6px}.topic:hover:not(:disabled){background:var(--soft);color:var(--text)}.topic.active{color:var(--text);background:#243a34;border-color:#47665b}.topic.active span{color:var(--mint)}.topic:disabled{opacity:.5}.player{border:1px solid var(--rule);border-radius:13px;background:#0b0e13;overflow:hidden}.toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:50px;padding:5px 13px;background:var(--panel)}.position{font-size:14px;font-weight:500}.position small{color:var(--mint);font:12px/1.5 ui-monospace,SFMono-Regular,monospace;margin-right:10px}.formats{display:flex;gap:4px;flex-shrink:0;background:#10151d;padding:3px;border-radius:8px}.format{min-width:60px;min-height:44px;border:0;border-radius:6px;padding:5px 10px;background:transparent;color:var(--muted);font-size:13px}.format[aria-pressed="true"]{background:var(--mint);color:#101b18;font-weight:600}.film-frame{display:flex;justify-content:center;background:#000}video{display:block;max-width:100%;max-height:82vh;max-height:82svh;background:#000;outline:none}video.portrait{width:auto;height:82vh;height:82svh;aspect-ratio:1080/2340;object-fit:contain}video.landscape{width:100%;height:auto;aspect-ratio:16/9;object-fit:contain}progress{display:block;width:100%;height:3px;border:0;border-radius:0;accent-color:var(--mint);background:#27313b}progress::-webkit-progress-bar{background:#27313b}progress::-webkit-progress-value{background:var(--mint)}progress::-moz-progress-bar{background:var(--mint)}.playing-note{display:flex;align-items:baseline;justify-content:space-between;gap:15px;padding:11px 13px;color:var(--muted);font-size:12px;background:var(--panel)}.playing-note strong{color:var(--text);font-weight:500;font-size:14px}.clock{flex-shrink:0;font:12px/1.5 ui-monospace,SFMono-Regular,monospace;font-variant-numeric:tabular-nums}.format-note{margin:10px 1px 0;color:#829097;font-size:11px;line-height:1.5}.scope{margin:10px 1px 0;color:var(--muted);font-size:12px;line-height:1.65;min-height:20px}.scope b{display:inline-block;margin-right:8px;font-weight:500;color:var(--mint)}.error{padding:13px 16px;border:1px solid #695b38;background:#282419;color:#efdaa8;border-radius:8px;margin:12px 0}.error button{margin-left:8px;min-height:44px;border:0;background:transparent;color:var(--mint);text-decoration:underline;text-underline-offset:4px}.resources{display:flex;gap:16px;flex-wrap:wrap;margin:22px 0 0;font-size:13px}.resources a{min-height:44px;display:inline-flex;align-items:center}.reference{margin:22px 0 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}summary{cursor:pointer;padding:16px 0;font-size:14px;color:var(--muted)}.reference-content{padding:0 0 20px;display:grid;gap:16px}.subtitle-links{display:flex;gap:18px;flex-wrap:wrap;font-size:13px}.transcript{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 28px}.transcript article{padding-top:14px;border-top:1px solid var(--rule)}.transcript button{padding:0;min-height:44px;border:0;background:transparent;color:var(--mint);text-align:left;font-size:14px}.transcript p{color:var(--muted);font-size:13px;margin:5px 0 0}.transcript small{display:block;margin-top:7px;color:#8d999f;font-size:11px}footer{margin-top:20px;color:#829097;font-size:11px;line-height:1.8}footer a{color:var(--muted)}[hidden]{display:none!important}@media(min-width:1000px){.topic{padding:8px 11px;font-size:12px}}@media(max-width:680px){main{padding:10px 10px 28px}.masthead{gap:10px;margin-bottom:8px}.brand{font-size:19px}.masthead h1{font-size:14px}.edition{font-size:10px}.topic-nav{margin-bottom:8px}.toolbar{padding:5px 10px}.position{font-size:12px}.position small{margin-right:7px;font-size:11px}.format{min-width:54px}.player{border-radius:9px}.playing-note{padding:10px}.transcript{grid-template-columns:1fr}.resources{gap:10px 15px}.scope{font-size:11px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<main>
+<header class="masthead"><a class="brand" href="#top" aria-label="NusaKVM 播放器">nusaKVM</a><h1 id="top">手機上的遠端主機</h1><span class="edition">八個主題 · 重點導覽</span></header>
+<nav class="topic-nav" aria-label="影片主題"><div class="topics" id="topics"></div></nav>
+<section class="player" aria-label="影片播放器">
+<div class="toolbar"><div class="position" id="position" aria-live="polite"><small>01 / 08</small>主機畫面</div><div class="formats" role="group" aria-label="影片方向"><button class="format" data-format="portrait" aria-pressed="true">直式</button><button class="format" data-format="landscape" aria-pressed="false">橫式</button></div></div>
+<div class="film-frame"><video id="film" class="portrait" controls playsinline preload="metadata" aria-label="NusaKVM 重點導覽影片"><track kind="captions" src="nusaKVM-highlights.zh-Hant.vtt" srclang="zh-Hant-TW" label="繁體中文">瀏覽器無法播放時，可以下載影片。</video></div>
+<progress id="progress" max="1" value="0" aria-label="播放進度"></progress>
+<div class="playing-note"><strong id="scene-title">手機上的遠端主機</strong><span class="clock" id="clock">0:00</span></div>
+</section>
+<p class="format-note" id="format-scope">直式：真實操作片段，局部加速與停格。</p>
+<p class="scope"><b id="scene-badge">實際App與主機</b><span id="scene-caveat">iOS模擬器連接真實NanoKVM；十月四日安全素材。</span></p>
+<div class="error" id="timeline-error" role="status" hidden>時間軸尚未載入；影片仍可用內建控制播放。<button id="reload-timeline">重新讀取時間軸</button></div>
+<div class="error" id="media-error" role="status" hidden>影片目前無法載入。可切換版本，或下載檔案播放。</div>
+<nav class="resources" aria-label="影片下載與完整參考"><a id="download" href="nusaKVM-highlights-portrait.mp4" download>下載直式影片</a><a href="../2026-10-04/index.html">完整 76 項功能</a><a href="../2026-10-04/nusaKVM-feature-guide.pptx" download>功能簡報</a><a href="../2026-10-04/nusaKVM-full-demo-1080p.mp4">完整版影片</a></nav>
+<details class="reference"><summary>字幕與逐字稿</summary><div class="reference-content"><div class="subtitle-links"><a href="nusaKVM-highlights.zh-Hant.srt" download>SRT 字幕</a><a href="nusaKVM-highlights.zh-Hant.vtt" download>VTT 字幕</a><a href="nusaKVM-highlights-transcript.txt" download>下載逐字稿</a></div><div class="transcript" id="transcript"></div></div></details>
+<footer>本片是現行功能重點。操作來自iOS模擬器與真實主機；頁面展示、資料讀取及實送範圍逐段說明。<br>NanoKVM為實驗室設備，App與Runner為NusaKVM自有實作；<a href="../2026-10-04/index.html">完整功能與限制</a>另附。</footer>
+</main>
+<script type="application/json" id="demo-data">{"chapters":[{"id":"screen","title":"主機畫面"},{"id":"manual","title":"手動操作"},{"id":"ai","title":"人工智慧任務"},{"id":"instructions","title":"常用指令"},{"id":"history","title":"歷史與報告"},{"id":"context","title":"歷史文字"},{"id":"settings","title":"模型設定"},{"id":"connection","title":"連線與授權"}],"scenes":[{"key":"v2s01_hook","topic":"screen","title":"手機上的遠端主機","narration":"遠端電腦卡住了？用手機先看清楚，再決定下一步。畫面、操作和人工智慧任務，都在同一個介面。","caption":"看清楚，再決定下一步","badge":"真實App與主機","caveat":"iOS模擬器接真實NanoKVM；十月四日素材。"},{"key":"v2s02_screen","topic":"screen","title":"放大看清楚","narration":"主機畫面可以全螢幕放大，字太小就拉近。操作前先確認是新畫面，避免對著過時內容操作。","caption":"全螢幕與唯讀縮放","badge":"實際App操作","caveat":"截圖監看；本機縮放不操作主機。"},{"key":"v2s03_manual","topic":"manual","title":"小事自己處理","narration":"處理小事，就切到手動操作。送出文字後，再用新畫面確認結果，按自己的步調完成。","caption":"文字送出後，再核對畫面","badge":"公開文字已核對","caveat":"只實送公開文字；其他鍵鼠控制未實演。"},{"key":"v2s04_ai","topic":"ai","title":"先讓人工智慧觀察","narration":"也可以說出目標，讓人工智慧先看畫面，再給你說明。觀察和操作分開選；這次完成的是純觀察任務。","caption":"描述目標，先取得說明","badge":"一次真實純觀察","caveat":"服務API啟動，手機讀取結果；任務未操作主機。"},{"key":"v2s05_budget","topic":"ai","title":"進度與用量","narration":"任務頁看得到狀態、請求限制和已知用量。遇到等待或未知結果，先核對再繼續。","caption":"進度、原始限制、已知用量","badge":"真實任務資料","caveat":"已知3,544 tokens；不是金額保證。"},{"key":"v2s06_instructions","topic":"instructions","title":"把常用目標留下來","narration":"常做的事情就存成指令，寫好目標和限制，下次直接找出來改。新增、編輯和刪除，都在手機上完成。","caption":"新增、編輯、刪除常用指令","badge":"實際本機操作","caveat":"本機觀察用途範本；模式未核對，未執行。"},{"key":"v2s07_history","topic":"history","title":"找回做過的任務","narration":"做過的任務都在歷史頁。搜尋目標，點進詳情，就能對照當時的狀態和文字事件。","caption":"找回任務，對照當時狀態","badge":"真實歷史與詳情","caveat":"真實任務讀取；App搜尋介面，API另驗查詢。"},{"key":"v2s08_report","topic":"history","title":"留下文字報告","narration":"需要留下說明，就產生文字報告。先看摘要，要附事件再勾選；核對內容後，才決定分享或存檔。","caption":"產生摘要，先核對再分享","badge":"實際報告預覽","caveat":"報告實際產生；系統分享、存檔未執行。"},{"key":"v2s09_context","topic":"context","title":"找以前畫面上的文字","narration":"想找以前畫面上的文字，就進歷史文字頁明確搜尋。取得時間和原始時間分開看，舊資料不當成目前畫面。","caption":"歷史文字，分清資料時間","badge":"已實作介面","caveat":"NanoKVM既有OCR；手機只拍介面，未查詢。"},{"key":"v2s10_settings","topic":"settings","title":"模型與資料由你決定","narration":"模型和資料傳送都由你決定。選好供應商，填上自己的金鑰，再同意傳送畫面；各家設定分開保留。","caption":"自帶金鑰，分別設定傳送同意","badge":"真實OpenAI設定頁","caveat":"OpenAI表單；Claude與連線測試未實演。"},{"key":"v2s11_connection","topic":"connection","title":"連線與授權看得懂","narration":"連線有問題，就進診斷頁，分開檢查主機畫面、服務和模型。配對清單則列出有權限的裝置，需要時再確認撤銷。","caption":"分層診斷，核對配對授權","badge":"真實資料讀取","caveat":"能力與授權metadata；未撤銷，拒絕紀錄不持久。"},{"key":"v2s12_closing","topic":"connection","title":"接著探索完整功能","narration":"先看清楚，再做需要的操作；完整功能與限制，就從影片旁的清單接著看。","caption":"八個主題，完整清單另附","badge":"重點版導覽","caveat":"重點版；完整七十六項功能與實演範圍另附。"}],"timeline":{"duration_seconds":108.43333333333334,"chapters":[{"id":"screen","title":"主機畫面","start_seconds":0,"end_seconds":20.066666666666666},{"id":"manual","title":"手動操作","start_seconds":20.066666666666666,"end_seconds":27.566666666666666},{"id":"ai","title":"人工智慧任務","start_seconds":27.566666666666666,"end_seconds":45.1},{"id":"instructions","title":"常用指令","start_seconds":45.1,"end_seconds":54.8},{"id":"history","title":"歷史與報告","start_seconds":54.8,"end_seconds":71.4},{"id":"context","title":"歷史文字","start_seconds":71.4,"end_seconds":81.03333333333333},{"id":"settings","title":"模型設定","start_seconds":81.03333333333333,"end_seconds":90.3},{"id":"connection","title":"連線與授權","start_seconds":90.3,"end_seconds":108.43333333333334}],"scenes":[{"key":"v2s01_hook","start_seconds":0,"end_seconds":11.333333333333334},{"key":"v2s02_screen","start_seconds":11.333333333333334,"end_seconds":20.066666666666666},{"key":"v2s03_manual","start_seconds":20.066666666666666,"end_seconds":27.566666666666666},{"key":"v2s04_ai","start_seconds":27.566666666666666,"end_seconds":36.93333333333333},{"key":"v2s05_budget","start_seconds":36.93333333333333,"end_seconds":45.1},{"key":"v2s06_instructions","start_seconds":45.1,"end_seconds":54.8},{"key":"v2s07_history","start_seconds":54.8,"end_seconds":62.03333333333333},{"key":"v2s08_report","start_seconds":62.03333333333333,"end_seconds":71.4},{"key":"v2s09_context","start_seconds":71.4,"end_seconds":81.03333333333333},{"key":"v2s10_settings","start_seconds":81.03333333333333,"end_seconds":90.3},{"key":"v2s11_connection","start_seconds":90.3,"end_seconds":100.73333333333333},{"key":"v2s12_closing","start_seconds":100.73333333333333,"end_seconds":108.43333333333334}]}}</script>
+<script>
+'use strict';
+const data = JSON.parse(document.getElementById('demo-data').textContent);
+const film = document.getElementById('film');
+const topics = document.getElementById('topics');
+const position = document.getElementById('position');
+const sceneTitle = document.getElementById('scene-title');
+const sceneBadge = document.getElementById('scene-badge');
+const sceneCaveat = document.getElementById('scene-caveat');
+const progress = document.getElementById('progress');
+const clock = document.getElementById('clock');
+const timelineError = document.getElementById('timeline-error');
+const mediaError = document.getElementById('media-error');
+const formatScope = document.getElementById('format-scope');
+const formatButtons = Array.from(document.querySelectorAll('[data-format]'));
+const sources = {portrait:'nusaKVM-highlights-portrait.mp4',landscape:'nusaKVM-highlights-landscape.mp4'};
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let timeline = null;
+let format = 'portrait';
+let loadEpoch = 0;
+let timelineEpoch = 0;
+let pendingPlayback = null;
+let activeTopic = null;
+let activeScene = null;
+const topicButtons = new Map();
+const transcriptButtons = new Map();
+function timestamp(seconds) {
+  if (!Number.isFinite(seconds) || seconds < 0) return '0:00';
+  const total = Math.floor(seconds);
+  return `${Math.floor(total / 60)}:${String(total % 60).padStart(2,'0')}`;
+}
+function validateTimeline(value) {
+  if (!value || !Number.isFinite(value.duration_seconds) || value.duration_seconds <= 0 || !Array.isArray(value.chapters) || !Array.isArray(value.scenes)) throw new Error('Invalid timeline');
+  const expected = new Set(data.chapters.map(row=>row.id));
+  if (value.chapters.length !== expected.size || new Set(value.chapters.map(row=>row.id)).size !== expected.size) throw new Error('Invalid topic identity');
+  let previous = -1;
+  for (const row of value.chapters) {
+    if (!expected.has(row.id) || !Number.isFinite(row.start_seconds) || !Number.isFinite(row.end_seconds) || row.start_seconds < 0 || row.end_seconds <= row.start_seconds || row.start_seconds < previous || row.end_seconds > value.duration_seconds + 1) throw new Error('Invalid topic range');
+    previous = row.start_seconds;
+  }
+  const expectedScenes = new Set(data.scenes.map(row=>row.key));
+  const seen = new Set();
+  previous = -1;
+  for (const row of value.scenes) {
+    if (!expectedScenes.has(row.key) || seen.has(row.key) || !Number.isFinite(row.start_seconds) || !Number.isFinite(row.end_seconds) || row.start_seconds < 0 || row.end_seconds <= row.start_seconds || row.start_seconds < previous || row.end_seconds > value.duration_seconds + 1) throw new Error('Invalid scene range');
+    seen.add(row.key); previous = row.start_seconds;
+  }
+  if (seen.size !== expectedScenes.size) throw new Error('Missing scene');
+  return {duration_seconds:value.duration_seconds,chapters:value.chapters.map(row=>({id:row.id,title:row.title,start_seconds:row.start_seconds,end_seconds:row.end_seconds})),scenes:value.scenes.map(row=>({key:row.key,start_seconds:row.start_seconds,end_seconds:row.end_seconds}))};
+}
+function currentRow(rows, seconds) {
+  return rows.find(row=>seconds >= row.start_seconds && seconds < row.end_seconds) || (seconds >= rows[rows.length - 1]?.end_seconds ? rows[rows.length - 1] : rows[0]);
+}
+function showPosition() {
+  const seconds = Number.isFinite(film.currentTime) ? film.currentTime : 0;
+  const duration = Number.isFinite(film.duration) && film.duration > 0 ? film.duration : timeline?.duration_seconds;
+  clock.textContent = duration ? `${timestamp(seconds)} / ${timestamp(duration)}` : timestamp(seconds);
+  progress.max = duration || 1; progress.value = Math.min(seconds, duration || 1);
+  if (!timeline) return;
+  const chapter = currentRow(timeline.chapters, seconds);
+  if (chapter && chapter.id !== activeTopic) {
+    activeTopic = chapter.id;
+    const ordinal = data.chapters.findIndex(row=>row.id === chapter.id) + 1;
+    const number = document.createElement('small'); number.textContent = `${String(ordinal).padStart(2,'0')} / 08`;
+    position.replaceChildren(number, document.createTextNode(chapter.title || data.chapters[ordinal-1].title));
+    for (const [id, button] of topicButtons) {
+      const active = id === chapter.id; button.classList.toggle('active', active);
+      if (active) button.setAttribute('aria-current','step'); else button.removeAttribute('aria-current');
+    }
+    const button = topicButtons.get(chapter.id);
+    if (button && (button.offsetLeft < topics.scrollLeft || button.offsetLeft + button.offsetWidth > topics.scrollLeft + topics.clientWidth)) topics.scrollTo({left:Math.max(0,button.offsetLeft - (topics.clientWidth - button.offsetWidth)/2),behavior:reducedMotion?'auto':'smooth'});
+  }
+  const timedScene = currentRow(timeline.scenes, seconds);
+  if (timedScene && timedScene.key !== activeScene) {
+    activeScene = timedScene.key;
+    const scene = data.scenes.find(row=>row.key === timedScene.key);
+    if (scene) {sceneTitle.textContent = scene.title; sceneBadge.textContent = scene.badge || ''; sceneCaveat.textContent = scene.caveat || '';}
+  }
+}
+function seekTo(seconds) {
+  if (!Number.isFinite(seconds) || seconds < 0) return;
+  const duration = Number.isFinite(film.duration) && film.duration > 0 ? film.duration : timeline?.duration_seconds;
+  const target = duration ? Math.min(seconds + 0.002, Math.max(0, duration - 0.001)) : seconds + 0.002;
+  if (film.readyState >= 1 && Number.isFinite(film.duration)) {film.currentTime = target; showPosition();}
+  else pendingPlayback = {epoch:loadEpoch,time:target,playing:false,rate:film.playbackRate};
+}
+function chooseFormat(next) {
+  if (!(next in sources)) return;
+  const state = {epoch:++loadEpoch,time:pendingPlayback?.time ?? film.currentTime ?? 0,playing:!film.paused,rate:film.playbackRate};
+  pendingPlayback = state; format = next;
+  formatScope.textContent = next === 'portrait' ? '直式：真實操作片段，局部加速與停格。' : '橫式：真實App快照近拍剪輯。';
+  film.pause(); film.className = next; mediaError.hidden = true;
+  for (const button of formatButtons) button.setAttribute('aria-pressed',String(button.dataset.format === next));
+  document.getElementById('download').href = sources[next];
+  document.getElementById('download').textContent = next === 'portrait' ? '下載直式影片' : '下載橫式影片';
+  film.src = sources[next]; film.load();
+}
+for (const [index, row] of data.chapters.entries()) {
+  const button = document.createElement('button'); button.type = 'button'; button.className = 'topic'; button.disabled = true;
+  const number = document.createElement('span'); number.textContent = String(index + 1).padStart(2,'0');
+  button.append(number,document.createTextNode(row.title));
+  button.addEventListener('click',()=>{const chapter=timeline?.chapters.find(item=>item.id === row.id); if(chapter) seekTo(chapter.start_seconds);});
+  topics.append(button); topicButtons.set(row.id,button);
+}
+for (const scene of data.scenes) {
+  const article = document.createElement('article');
+  const button = document.createElement('button'); button.type='button'; button.textContent=scene.title; button.disabled=true;
+  button.addEventListener('click',()=>{const row=timeline?.scenes.find(item=>item.key === scene.key);if(row)seekTo(row.start_seconds);});
+  const text = document.createElement('p'); text.textContent=scene.narration;
+  const note = document.createElement('small'); note.textContent=scene.caveat;
+  article.append(button,text,note); document.getElementById('transcript').append(article); transcriptButtons.set(scene.key,button);
+}
+async function loadTimeline() {
+  const epoch=++timelineEpoch;
+  document.getElementById('reload-timeline').disabled=true;
+  try {
+    const value = data.timeline || await fetch('timeline.json',{cache:'no-store'}).then(response=>{if(!response.ok)throw new Error('Timeline unavailable');return response.json();});
+    const checked=validateTimeline(value); if(epoch !== timelineEpoch)return;
+    timeline=checked; timelineError.hidden=true;
+    for(const [id,button] of topicButtons){button.disabled=false;const row=timeline.chapters.find(item=>item.id===id);button.title=`${timestamp(row.start_seconds)} · ${row.title}`;}
+    for(const [key,button] of transcriptButtons){const row=timeline.scenes.find(item=>item.key===key);button.disabled=false;button.textContent=`${timestamp(row.start_seconds)} · ${data.scenes.find(item=>item.key===key).title}`;}
+    activeTopic=null;activeScene=null;showPosition();
+  } catch(error) {if(epoch===timelineEpoch)timelineError.hidden=false;}
+  finally {if(epoch===timelineEpoch)document.getElementById('reload-timeline').disabled=false;}
+}
+for(const button of formatButtons)button.addEventListener('click',()=>{if(button.dataset.format!==format)chooseFormat(button.dataset.format);});
+document.getElementById('reload-timeline').addEventListener('click',()=>{data.timeline=null;loadTimeline();});
+film.addEventListener('loadedmetadata',()=>{
+  const state=pendingPlayback;
+  if(state && state.epoch===loadEpoch){pendingPlayback=null;film.currentTime=Math.min(Math.max(0,state.time),film.duration || state.time);film.playbackRate=state.rate;if(state.playing)film.play().catch(()=>{});}
+  showPosition();
+});
+for(const event of ['timeupdate','seeked','play','pause','ended'])film.addEventListener(event,showPosition);
+film.addEventListener('error',()=>{mediaError.hidden=false;});
+chooseFormat('portrait');loadTimeline();
+</script>
+</body></html>

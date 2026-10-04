@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: nusakvm-demo
+    runtime: static
+    buildCommand: test -f site/index.html
+    staticPublishPath: site
